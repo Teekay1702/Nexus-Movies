@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const MOVIE_DB_API_KEY = '5017776348012e3d35b87f7c927200a4'
+  const [movies, setMovies] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_DB_API_KEY}`
+        )
+        const data = await response.json()
+        setMovies(data.results)
+        setLoading(false)
+      } catch (error) {
+        console.error('Error fetching movies:', error)
+        setLoading(false)
+      }
+    }
+
+    fetchMovies()
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <h1>Nexus Movies</h1>
+      {loading ? (
+        <p>Loading movies...</p>
+      ) : (
+        <div className="movies-grid">
+          {movies.map((movie) => (
+            <div key={movie.id} className="movie-card">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <h2>{movie.title}</h2>
+              <p>{movie.overview}</p>
+              <p>Rating: {movie.vote_average}/10</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
-
 export default App
