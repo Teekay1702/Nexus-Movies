@@ -9,7 +9,7 @@ export const MovieProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [isError, setIsError] = useState({ show: false, msg: "" });
 
-  // Fetch movies
+  
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
