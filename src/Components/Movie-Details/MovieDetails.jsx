@@ -5,6 +5,7 @@ const MovieDetails = () => {
   const { id } = useParams(); 
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [trailer, setTrailer] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -14,6 +15,22 @@ const MovieDetails = () => {
         );
         const data = await response.json();
         setMovie(data);
+
+        const trailerResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}/videos?api_key=5017776348012e3d35b87f7c927200a4`
+        );
+        const trailerData = await trailerResponse.json();
+
+        const officialTrailer = trailerData.results.find(
+          (video) => video.type === 'Trailer' && video.site === 'YouTube'
+        );
+
+        if (officialTrailer) {
+            setTrailer(`https://www.youtube.com/embed/${officialTrailer.key}`);
+          }
+
+          setLoading(false);
+
         setLoading(false);
       } catch (error) {
         console.error("Error fetching movie details:", error);
@@ -42,6 +59,23 @@ const MovieDetails = () => {
       <p>{movie.overview}</p>
       <p>Rating: {movie.vote_average.toFixed(1)}/10</p>
       <p>Release Date: {movie.release_date}</p>
+      {/* YouTube Trailer */}
+      {trailer ? (
+        <div className="trailer">
+          <h3>Watch Trailer</h3>
+          <iframe
+            width="560"
+            height="315"
+            src={trailer}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      ) : (
+        <p>No trailer available.</p>
+      )}
     </div>
   );
 };
