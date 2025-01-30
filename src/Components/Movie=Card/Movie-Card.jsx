@@ -1,6 +1,7 @@
 import React from 'react';
 import './Movie-Card.css';
 import { useGlobalContext } from '../../MovieContext';
+import { Link } from 'react-router-dom';
 
 const MovieCard = () => {
   const { movies, loading } = useGlobalContext();
@@ -11,6 +12,7 @@ const MovieCard = () => {
 
   return (
     <div className="movies-grid">
+        <Link to="/" className="back-button">⬅ Back to Home</Link>
       {movies.map((movie) => (
         <div key={movie.id} className="movie-card">
           <img
