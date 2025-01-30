@@ -12,7 +12,6 @@ const MovieGrid = () => {
 
   return (
     <div className="movies-grid">
-      <Link to="/" className="back-button">⬅ Back to Home</Link>
       {movies.map((movie) => (
         <div key={movie.id} className="movie-card">
           <Link to={`/movie/${movie.id}`}>
@@ -26,6 +25,7 @@ const MovieGrid = () => {
           </h2>
         </div>
       ))}
+      <Link to="/" className="back-button">⬅ Back to Home</Link>
     </div>
   );
 };
