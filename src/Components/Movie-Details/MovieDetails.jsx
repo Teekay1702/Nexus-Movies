@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import './MovieDetails.css'
 
 const MovieDetails = () => {
   const { id } = useParams(); 
@@ -59,7 +60,7 @@ const MovieDetails = () => {
       <h2>{movie.title}</h2>
       <p>{movie.overview}</p>
       <p>Rating: {movie.vote_average.toFixed(1)}/10</p>
-      <p>Release Date: {movie.release_date}</p>
+      <p className='release-date'>Release Date: {movie.release_date}</p>
       {/* YouTube Trailer */}
       {trailer ? (
         <div className="trailer">
