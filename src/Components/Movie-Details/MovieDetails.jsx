@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { id } = useParams(); 
@@ -51,6 +51,7 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details">
+        <Link to="/" className="back-button">⬅ Back to Home</Link>
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
