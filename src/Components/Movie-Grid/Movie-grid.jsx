@@ -23,8 +23,6 @@ const MovieGrid = () => {
           <h2>
             <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
           </h2>
-          <p>{movie.overview}</p>
-          <p>Rating: {movie.vote_average.toFixed(1)}/10</p>
         </div>
       ))}
     </div>

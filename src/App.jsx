@@ -2,11 +2,12 @@ import React from 'react'
 import './App.css'
 import SearchBar from './Components/SearchBar/Searchbar'
 import MovieGrid from './Components/Movie-Grid/Movie-grid'
+import MovieDetails from './Components/Movie-Details/MovieDetails'
 import { MovieProvider } from './MovieContext'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
-  return (
+  return (  
     <MovieProvider>
       <Router>
         <div className="app">
