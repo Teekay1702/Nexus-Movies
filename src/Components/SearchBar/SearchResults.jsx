@@ -9,7 +9,7 @@ const SearchResults = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_KEY = '5017776348012e3d35b87f7c927200a4'; // Replace with your actual TMDb API key
+  const API_KEY = '5017776348012e3d35b87f7c927200a4';
 
   useEffect(() => {
     const fetchSearchResults = async () => {
