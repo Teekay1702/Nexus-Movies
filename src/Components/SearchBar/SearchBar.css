@@ -1,0 +1,59 @@
+/* Searchbar.css */
+.search-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.search-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-section input {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.search-section input:focus {
+  border-color: #007bff;
+}
+
+.search-section button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-section button:hover {
+  background-color: #0056b3;
+}
+
+.search-section .card-error {
+  color: #ff4d4d;
+  margin-top: 10px;
+  font-size: 14px;
+}
