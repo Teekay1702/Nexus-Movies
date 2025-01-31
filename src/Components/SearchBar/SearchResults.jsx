@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useGlobalContext } from '../../MovieContext';
 
 const SearchResults = () => {
   const { query } = useParams();
+  const {fetchMovies, setQuery } = useGlobalContext();
+  const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,10 +29,19 @@ const SearchResults = () => {
     fetchSearchResults();
   }, [query]);
 
+  const handleBackToHome = () => {
+    setQuery("");
+    fetchMovies();
+    navigate('/');
+  }
+
   if (loading) return <p>Loading results...</p>;
 
   return (
     <div className="movies-grid">
+      <button onClick={handleBackToHome} className="back-button">
+        ⬅ Back to Home
+      </button>
       <h2>Search Results for "{query}"</h2>
       {movies.length > 0 ? (
         movies.map((movie) => (
