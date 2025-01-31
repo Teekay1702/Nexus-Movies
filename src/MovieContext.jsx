@@ -15,7 +15,7 @@ export const MovieProvider = ({ children }) => {
       setLoading(true);
       try {
         let url = `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_DB_API_KEY}`;
-        if (query) {
+        if (searchQuery) {
           url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_DB_API_KEY}&query=${query}`;
         }
 
