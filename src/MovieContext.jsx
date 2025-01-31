@@ -10,12 +10,12 @@ export const MovieProvider = ({ children }) => {
   const [isError, setIsError] = useState({ show: false, msg: "" });
 
   
-  useEffect(() => {
-    const fetchMovies = async () => {
+  
+    const fetchMovies = async (searchQuery = "") => {
       setLoading(true);
       try {
         let url = `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_DB_API_KEY}`;
-        if (query) {
+        if (searchQuery) {
           url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_DB_API_KEY}&query=${query}`;
         }
 
@@ -36,11 +36,11 @@ export const MovieProvider = ({ children }) => {
       setLoading(false);
     };
 
-    fetchMovies();
+    useEffect(() => {fetchMovies();
   }, [query]);
 
   return (
-    <MovieContext.Provider value={{ movies, loading, query, setQuery, isError }}>
+    <MovieContext.Provider value={{ movies, loading, query, setQuery, isError, fetchMovies }}>
       {children}
     </MovieContext.Provider>
   );
