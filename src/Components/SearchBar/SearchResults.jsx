@@ -13,6 +13,13 @@ const SearchResults = () => {
 
   useEffect(() => {
     const fetchSearchResults = async () => {
+      let url = '';
+      if (isNaN(query)) {
+        url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${query}`;
+      } else {
+        url = `https://api.themoviedb.org/3/movie/${query}?api_key=${API_KEY}`;
+      }
+
       try {
         const response = await fetch(
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
@@ -27,6 +34,7 @@ const SearchResults = () => {
     };
 
     fetchSearchResults();
+    setQuery("");
   }, [query]);
 
   const handleBackToHome = () => {

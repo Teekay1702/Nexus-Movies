@@ -16,7 +16,11 @@ export const MovieProvider = ({ children }) => {
       try {
         let url = `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_DB_API_KEY}`;
         if (searchQuery) {
-          url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_DB_API_KEY}&query=${query}`;
+          if(!isNaN(searchQuery)) {
+            url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_DB_API_KEY}&query=${searchQuery}`;
+          } else {
+            url = `https://api.themoviedb.org/3/movie/${searchQuery}?api_key=${MOVIE_DB_API_KEY}`;
+          }
         }
 
         const response = await fetch(url);
