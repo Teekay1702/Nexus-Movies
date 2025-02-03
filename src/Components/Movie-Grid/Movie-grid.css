@@ -8,3 +8,9 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+.movie-card{
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
