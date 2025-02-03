@@ -43,4 +43,23 @@
   .movie-card a:hover {
     color: #ddb1b1;
   }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .movies-grid {
+      grid-template-columns: repeat(3, 1fr); 
+  }
+  
+  @media (max-width: 768px) {
+    .movies-grid {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .movies-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
   
