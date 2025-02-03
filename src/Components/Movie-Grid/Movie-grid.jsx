@@ -25,7 +25,6 @@ const MovieGrid = () => {
           </h2>
         </div>
       ))}
-      <Link to="/" className="back-button">⬅ Back to Home</Link>
     </div>
   );
 };

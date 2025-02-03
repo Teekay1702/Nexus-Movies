@@ -10,13 +10,17 @@ export const MovieProvider = ({ children }) => {
   const [isError, setIsError] = useState({ show: false, msg: "" });
 
   
-  useEffect(() => {
-    const fetchMovies = async () => {
+  
+    const fetchMovies = async (searchQuery = "") => {
       setLoading(true);
       try {
         let url = `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_DB_API_KEY}`;
-        if (query) {
-          url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_DB_API_KEY}&query=${query}`;
+        if (searchQuery) {
+          if (!isNaN(searchQuery)) {
+            url = `https://api.themoviedb.org/3/discover/movie?api_key=${MOVIE_DB_API_KEY}&with_genres=${searchQuery}`;
+          } else {
+            url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_DB_API_KEY}&query=${searchQuery}`;
+          }
         }
 
         const response = await fetch(url);
@@ -36,11 +40,11 @@ export const MovieProvider = ({ children }) => {
       setLoading(false);
     };
 
-    fetchMovies();
+    useEffect(() => {fetchMovies();
   }, [query]);
 
   return (
-    <MovieContext.Provider value={{ movies, loading, query, setQuery, isError }}>
+    <MovieContext.Provider value={{ movies, loading, query, setQuery, isError, fetchMovies }}>
       {children}
     </MovieContext.Provider>
   );
