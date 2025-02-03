@@ -18,6 +18,7 @@ function App() {
             <Route path="/" element={<MovieGrid />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
             <Route path="/search/:query" element={<SearchResults />} />
+            <Route path="/search/genre/:genreId" element={<SearchResults />} />
           </Routes>
         </div>
       </Router>

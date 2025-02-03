@@ -13,10 +13,8 @@ const SearchBar = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (selectedGenre) {
-      setQuery(selectedGenre);
-      navigate(`/search/${selectedGenre}`);
+      navigate(`/search/${selectedGenre || searchTerm}`);
     } else if (searchTerm.trim()) {
-      setQuery(searchTerm);
       navigate(`/search/${searchTerm}`);
     }
 
