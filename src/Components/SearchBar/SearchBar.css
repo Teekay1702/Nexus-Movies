@@ -69,7 +69,8 @@
   font-size: 16px;
   background-color:  rgba(82, 157, 167, 0.3);
   color: black;
-  border: none;
+  border: 2px solid #ccc;
+  border-color: #007bff; 
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
