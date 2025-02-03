@@ -12,8 +12,11 @@
   border: none;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.2s;
   will-change: transform;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid #437e79;
+  background-color: rgba(215, 246, 250, 0.3);
 }
 
 .movie-card:hover {
@@ -29,19 +32,23 @@
   border-bottom: 2px solid #8cad79;
 }
 
+
 .movie-card h2 a {
-    text-decoration: none;
-    color: #66437e;
-    font-weight: bold;
-    display: block;
-    padding: 5px 0;
-    transition: color 0.3s;
-    border: 1px solid #437e79;
-    border-radius: 5px;
-    background-color: rgb(215, 246, 250);
-  }
+  text-decoration: none;
+  color: #66437e;
+  font-weight: bold;
+  display: block;
+  padding: 6px 10px;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+  border: 0px solid #437e79;
+  border-radius: 5px;
+  background-color: rgba(82, 157, 167, 0.3);
+}
+
+
   .movie-card a:hover {
-    color: #ddb1b1;
+    color: #f03514;
+    background-color: rgba(32, 139, 64, 0.3);
   }
 
   /* Responsive Adjustments */
