@@ -1,3 +1,4 @@
+
 .search-section {
   text-align: center;
   padding: 20px;
@@ -9,11 +10,13 @@
   margin: 0 auto;
 }
 
+
 .search-section h2 {
   font-size: 24px;
   color: #333;
   margin-bottom: 20px;
 }
+
 
 .search-section form {
   display: flex;
@@ -67,7 +70,8 @@
   font-size: 16px;
   background-color:  rgba(82, 157, 167, 0.3);
   color: black;
-  border: none;
+  border: 2px solid #ccc;
+  border-color: #007bff; 
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
