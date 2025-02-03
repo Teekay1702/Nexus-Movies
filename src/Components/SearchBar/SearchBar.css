@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-.search-section .genre-dropdown {
+.search-section select {
   padding: 10px 15px;
   font-size: 16px;
   width: 100%;
@@ -37,15 +37,14 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.search-section .genre-dropdown:hover {
+.search-section select:hover {
   background-color: #f1f1f1;
   transform: scale(1.05); 
 }
 
-.search-section .genre-dropdown:focus {
+.search-section select:focus {
   border-color: #007bff; 
 }
-
 
 .search-section input {
   padding: 10px 15px;
