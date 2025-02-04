@@ -30,12 +30,14 @@ function App() {
 }
 
 const Header = () => {
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header>
+    <header className="header">
       <h1>Nexus Movies</h1>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={toggleTheme} className="theme-toggle">
+        {theme === 'light' ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}
+      </button>
     </header>
   );
 };
