@@ -7,7 +7,7 @@ const SearchBar = () => {
   const { setQuery, isError } = useGlobalContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('');
-  const [genres,  setGenres] = useState([]);
+  const [genres, setGenres] = useState([]);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -17,10 +17,7 @@ const SearchBar = () => {
     } else if (searchTerm.trim()) {
       navigate(`/search/${searchTerm}`);
     }
-
-    setSearchTerm('');
-    setSelectedGenre('');
-  }
+  };
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -31,8 +28,7 @@ const SearchBar = () => {
         }
         const data = await response.json();
         setGenres(data.genres || []);
-      }
-      catch (error) {
+      } catch (error) {
         console.error('Error fetching genres:', error);
       }
     };
@@ -42,24 +38,29 @@ const SearchBar = () => {
 
   return (
     <section className="search-section">
-      <h2>Search for a Movie</h2>
-      <form onSubmit={handleSearch}>
-        <div>
-          <input 
-            type="text" 
-            placeholder="Search Movie" 
-            value={searchTerm} 
-            onChange={(e) => setSearchTerm(e.target.value)} 
-          />
-          <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)}>
-            <option value="">Select Genre</option>
+      <form onSubmit={handleSearch} className="search-form netflix-style">
+        <div className="search-container">
+          <div className="search-input-wrapper">
+            <input 
+              type="text" 
+              placeholder="Search for movies..." 
+              value={searchTerm} 
+              onChange={(e) => setSearchTerm(e.target.value)} 
+            />
+            <button type="submit" className="search-button">🔍</button>
+          </div>
+          <select 
+            className="genre-dropdown" 
+            value={selectedGenre} 
+            onChange={(e) => setSelectedGenre(e.target.value)}
+          >
+            <option value="">Genres</option>
             {genres.map(genre => (
               <option key={genre.id} value={genre.id}>
                 {genre.name}
               </option>
             ))}
-            </select>
-          <button type="submit">🔍 Search</button>
+          </select>
         </div>
       </form>
       {isError.show && <p className="card-error">{isError.msg}</p>}
