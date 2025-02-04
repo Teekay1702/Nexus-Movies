@@ -62,7 +62,7 @@ body {
    display: inline-block;
    margin-bottom: 20px;
    padding: 10px 15px;
-   background: #ff3d00;
+   background: linear-gradient(45deg, #000000, #2575fc);
    color: #ffffff;
    text-decoration: none;
    font-weight: bold;
@@ -71,7 +71,7 @@ body {
  }
  
  .back-button:hover {
-   background: #d32f2f;
+   background:linear-gradient(45deg, #111111, #1b5ed6);
  }
  
  @keyframes fadeIn {
