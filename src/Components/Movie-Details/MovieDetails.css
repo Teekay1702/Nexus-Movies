@@ -34,12 +34,20 @@ body {
  h2 {
    font-size: 2rem;
    margin-top: 15px;
+   font-style: italic;
+   background: linear-gradient(45deg, #1607ec, #000000);
+   background-clip: text;
+   -webkit-background-clip: text;
+   color: transparent;
+   -webkit-text-fill-color: transparent;
  }
  
  p {
    font-size: 1.1rem;
    line-height: 1.6;
    opacity: 0.9;
+   font-style: italic;
+   color: #25dcfc;
  }
  
  .release-date {
@@ -63,7 +71,7 @@ body {
    margin-bottom: 20px;
    padding: 10px 15px;
    background: linear-gradient(45deg, #000000, #2575fc);
-   color: #ffffff;
+   color: #2575fc;
    text-decoration: none;
    font-weight: bold;
    border-radius: 5px;
