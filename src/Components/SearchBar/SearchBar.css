@@ -1,4 +1,3 @@
-
 .search-section {
   text-align: center;
   padding: 20px;
@@ -10,13 +9,11 @@
   margin: 0 auto;
 }
 
-
 .search-section h2 {
   font-size: 24px;
   color: #333;
   margin-bottom: 20px;
 }
-
 
 .search-section form {
   display: flex;
@@ -64,7 +61,6 @@
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
 }
 
-
 .search-section button {
   padding: 12px 25px;
   font-size: 16px;
@@ -82,12 +78,10 @@
   transform: scale(1.05); 
 }
 
-
 .search-section button:focus {
   outline: none;
   box-shadow: 0 4px 12px rgba(82, 157, 167, 0.3);
 }
-
 
 .search-section .card-error {
   color: #ff4d4d;
