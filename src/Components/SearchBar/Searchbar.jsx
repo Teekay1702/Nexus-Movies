@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Searchbar.css';
+import 'font-awesome/css/font-awesome.min.css';
 import { useGlobalContext } from '../../MovieContext';
 
 const SearchBar = () => {
