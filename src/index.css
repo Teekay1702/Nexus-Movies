@@ -11,6 +11,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme='dark'] {
+  --background-color: #242424;
+  --text-color: #ffffff;
 }
 
 a {
@@ -23,6 +31,8 @@ a:hover {
 }
 
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   display: flex;
   place-items: center;
