@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useGlobalContext } from '../../MovieContext';
 import './MovieDetails.css'
 
@@ -7,6 +8,9 @@ import './MovieDetails.css'
 const MovieDetails = () => {
   const { id } = useParams();
   const { setQuery, query } = useGlobalContext();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const searchQuery = params.get("query");
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,6 +18,9 @@ const MovieDetails = () => {
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
+      if (searchQuery) {
+        setQuery(searchQuery);
+      }
       try {
         const response = await fetch(
           `https://api.themoviedb.org/3/movie/${id}?api_key=5017776348012e3d35b87f7c927200a4`
@@ -44,7 +51,7 @@ const MovieDetails = () => {
     };
 
     fetchMovieDetails();
-  }, [id]);
+  }, [id], [searchQuery, setQuery]);
 
   const handleBackToSearchResults = () => {
     if (query) {

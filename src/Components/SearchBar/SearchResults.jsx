@@ -4,6 +4,7 @@ import { useGlobalContext } from '../../MovieContext';
 
 const SearchResults = () => {
   const { query } = useParams();
+  const genreId = isNaN(query) ? null : query;
   const {fetchMovies, setQuery } = useGlobalContext();
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
@@ -13,21 +14,31 @@ const SearchResults = () => {
 
   useEffect(() => {
     const fetchSearchResults = async () => {
+      let url = '';
+      if (!query && !genreId) return;
+
+    if (genreId) {
+      url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`;
+    } else {
+      url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
+    }
+
       try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
-        );
+        const response = await fetch(url);
         const data = await response.json();
-        setMovies(data.results);
-        setLoading(false);
+        if (data.results) {
+          setMovies(data.results);
+        } else {
+          setMovies([]);
+        }
       } catch (error) {
         console.error('Error fetching search results:', error);
-        setLoading(false);
       }
+      setLoading(false);
     };
 
     fetchSearchResults();
-  }, [query]);
+  }, [query, genreId]);
 
   const handleBackToHome = () => {
     setQuery("");
@@ -42,11 +53,10 @@ const SearchResults = () => {
       <button onClick={handleBackToHome} className="back-button">
         ⬅ Back to Home
       </button>
-      <h2>Search Results for "{query}"</h2>
       {movies.length > 0 ? (
         movies.map((movie) => (
           <div key={movie.id} className="movie-card">
-            <Link to={`/movie/${movie.id}`}>
+            <Link to={`/movie/${movie.id}?query=${query}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
