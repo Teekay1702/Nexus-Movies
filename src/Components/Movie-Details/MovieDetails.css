@@ -73,9 +73,10 @@ body {
  }
  
  .trailer {
-   margin-top: 20px;
-   color: #0772ec;
-   font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px; /* Added space below trailer */
+  color: #0772ec;
+  font-weight: bold;
  }
  
  .trailer iframe {
