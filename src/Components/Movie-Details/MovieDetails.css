@@ -28,9 +28,12 @@ body {
   text-align: left;
 }
  
- .movie-details img:hover {
-   transform: scale(1.05);
- }
+.movie-container img {
+  width: 40%;
+  max-width: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
  
  h2 {
    font-size: 2rem;
