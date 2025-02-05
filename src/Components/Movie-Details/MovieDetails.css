@@ -20,16 +20,28 @@ body {
    animation: fadeIn 1s ease-in-out;
  }
  
- .movie-details img {
-   width: 100%;
-   max-width: 400px;
-   border-radius: 10px;
-   transition: transform 0.3s ease-in-out;
- }
+ /* Align Image & Text Horizontally */
+.movie-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
  
- .movie-details img:hover {
-   transform: scale(1.05);
- }
+.movie-container img {
+  width: 40%;
+  max-width: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-container img:hover {
+  transform: scale(1.05);
+}
+
+.movie-content {
+  flex: 1;
+}
  
  h2 {
    font-size: 2rem;
@@ -50,15 +62,21 @@ body {
    color: #25dcfc;
  }
  
+ .rating {
+  font-weight: bold;
+  color: #2196f3;
+}
+
  .release-date {
    font-weight: bold;
    color: #ffcc00;
  }
  
  .trailer {
-   margin-top: 20px;
-   color: #0772ec;
-   font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px; /* Added space below trailer */
+  color: #0772ec;
+  font-weight: bold;
  }
  
  .trailer iframe {
