@@ -110,7 +110,7 @@ const MovieDetails = () => {
         alt={movie.title}
       />
       <h2>{movie.title}</h2>
-      <p>{movie.overview}</p>
+      <p>Description{movie.overview}</p>
       <p> IMBD Ratings: {movie.vote_average.toFixed(1)}/10</p>
       <p className='release-date'>Release Date: {movie.release_date}</p>
       
