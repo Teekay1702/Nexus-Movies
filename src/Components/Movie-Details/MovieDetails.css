@@ -34,6 +34,14 @@ body {
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
 }
+
+.movie-container img:hover {
+  transform: scale(1.05);
+}
+
+.movie-content {
+  flex: 1;
+}
  
  h2 {
    font-size: 2rem;
