@@ -1,11 +1,9 @@
-/* Searchbar.css */
-
 .search-section {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: black;
+  background-color: transparent;
 }
 
 .search-form {
@@ -39,7 +37,7 @@
   border: none;
   border-radius: 50px;
   font-size: 16px;
-  background-color: black;
+  background-color: transparent;
   color: #fff;
   outline: none;
 }
@@ -67,7 +65,7 @@
 }
 
 .genre-dropdown option {
-  background-color: black;
+  background-color: transparent;
   color: #fff;
 }
 
@@ -75,3 +73,4 @@
 .genre-dropdown:hover {
   opacity: 0.8;
 }
+
