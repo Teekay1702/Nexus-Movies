@@ -115,7 +115,7 @@ const MovieDetails = () => {
         />
         <div className="movie-content">
           <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
+          <p><strong>Description</strong>{movie.overview}</p>
           <p className="rating">⭐ {movie.vote_average.toFixed(1)}/10</p>
           <p className="release-date"> Release Date📅 : {movie.release_date}</p>
         </div>
