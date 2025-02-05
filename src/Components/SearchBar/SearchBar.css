@@ -37,7 +37,7 @@
   border: none;
   border-radius: 50px;
   font-size: 16px;
-  background-color: transparent;
+  background-color: black;
   color: #fff;
   outline: none;
 }
@@ -52,6 +52,7 @@
   color: #fff;
 }
 
+
 .genre-dropdown {
   margin-left: 10px;
   padding: 10px;
@@ -60,12 +61,20 @@
   background-color: #333;
   color: #fff;
   font-size: 16px;
-  outline: none;
+<<<<<<<<< Temporary merge branch 1
+  background-color: rgba(82, 157, 167, 0.3);
+=========
+  background-color:  rgba(82, 157, 167, 0.3);
+>>>>>>>>> Temporary merge branch 2
+  color: black;
+  border: 2px solid #ccc;
+  border-color: #007bff; 
+  border-radius: 25px;
   cursor: pointer;
 }
 
 .genre-dropdown option {
-  background-color: transparent;
+  background-color: black;
   color: #fff;
 }
 
