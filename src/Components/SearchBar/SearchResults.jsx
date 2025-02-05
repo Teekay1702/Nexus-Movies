@@ -41,10 +41,10 @@ const SearchResults = () => {
   }, [query, genreId]);
 
   const handleBackToHome = () => {
-    setQuery("");
-    fetchMovies();
-    navigate('/');
-  }
+    setQuery("");  
+    fetchMovies(); 
+    navigate('/'); 
+  };
 
   if (loading) return <p>Loading results...</p>;
 

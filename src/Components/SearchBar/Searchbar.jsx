@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Searchbar.css';
 import { useGlobalContext } from '../../MovieContext';
 
@@ -9,6 +9,8 @@ const SearchBar = () => {
   const [selectedGenre, setSelectedGenre] = useState('');
   const [genres, setGenres] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
+  
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -35,6 +37,20 @@ const SearchBar = () => {
 
     fetchGenres();
   }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setSearchTerm('');
+      setSelectedGenre('');
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if(selectedGenre) {
+      navigate(`/search/${selectedGenre}`);
+      setTimeout(() => setSelectedGenre (''), 200);
+    };
+  }, [selectedGenre, navigate]);
 
   return (
     <section className="search-section">
